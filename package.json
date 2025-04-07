@@ -1,0 +1,29 @@
+{
+  "name": "e-commerce",
+  "version": "1.0.0",
+  "description": "This is a E-Commerce project with both Backend and Frontend",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "crypto": "^1.0.1",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "lodash": "^4.17.21",
+    "slugify": "^1.6.6"
+  },
+  "devDependencies": {
+    "compression": "^1.8.0",
+    "dotenv": "^16.4.7",
+    "helmet": "^8.0.0",
+    "mongodb": "^6.13.1",
+    "mongoose": "^8.10.1",
+    "morgan": "^1.10.0"
+  }
+}
