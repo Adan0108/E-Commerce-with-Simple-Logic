@@ -2,6 +2,7 @@
 const AccessService = require('../services/access.service')
 
 const { OK , CREATED , SuccessResponse} = require('../core/success.response')
+const { BadRequestError } = require('../core/error.response')
 /*
 200 OK
 201 CREATED
@@ -35,6 +36,10 @@ class AccessController {
   }
 
   login = async (req, res, next) => {
+    const {email} = req.body
+    if(!email){
+      throw new BadRequestError('email missing')
+    }
     new SuccessResponse({
       metadata : await AccessService.login( req.body )
     }).send(res)
