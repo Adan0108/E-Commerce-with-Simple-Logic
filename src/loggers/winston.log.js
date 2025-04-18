@@ -1,10 +1,16 @@
 'use strict'
 
 const winston = require('winston');
-// const {} = winston
+const { combine, timestamp, json, align ,printf} = winston.format
 const logger = winston.createLogger({
   level: process.env.LOG_LEVEL || 'debug',
-  format: winston.format.simple(),
+  format: combine(
+    timestamp({
+      format: 'YYYY-MM-DD hh:mm:ss.SSS A'
+    }),
+    align(),
+    printf(info => `[${info.timestamp}] ${info.level} ${info.message}`)
+  ),
   transports: [
     new winston.transports.Console(),
     new winston.transports.File({
